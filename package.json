@@ -1,0 +1,29 @@
+{
+  "name": "League-of-Legends-Overlay-ULTRA",
+  "version": "1.0.0",
+  "description": "A League of Legends Stats window to use for OBS overlay.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/memoriasIT/LeagueStats",
+  "keywords": [
+    "League of Legends",
+    "Stats",
+    "Statistics",
+    "OBS",
+    "overlay"
+  ],
+  "author": "memoriasIT",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^2.0.3",
+    "electron-packager": "^12.1.0"
+  },
+  "dependencies": {
+    "http": "0.0.0",
+    "ipc": "0.0.1",
+    "request": "^2.87.0",
+    "window-size": "^1.1.0"
+  }
+}

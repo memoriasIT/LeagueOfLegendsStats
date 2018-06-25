@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html  style="width: 575px;height: 401px;">
+    <head>
+        <!-- Materialize -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+        <meta charset="UTF-8">
+        <title>League of Legends Overlay ULTRA</title>
+        <style>
+            .draggable-area{
+                -webkit-app-region: drag;
+            }
+
+            .NotDraggable{
+                user-drag: none; user-select: none;-moz-user-select: none;-webkit-user-drag: none;-webkit-user-select: none;-ms-user-select: none;
+            }
+
+            #wrap {
+              width:500px;
+              margin:0 auto;
+              
+            }
+            #left_col {
+              float:left;
+              width:250px;
+              /* background-color:blue; */
+            }
+            #right_col {
+              padding-left: 25px;
+              float:right;
+              width:250px;
+              /* background-color:white; */
+            }
+
+            input, select, textarea{
+                color: white;
+            }
+
+            textarea:focus, input:focus {
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div >
+            <div id="wrap" class="NotDraggable">
+                <div id="left_col" >
+                        <form action="">
+                                <div><img src="cruz.png" style="height: 20px; position:relative; top: 70px; margin: 5px;" alt="" class="NotDraggable" id="close">
+                                    <img src="minimize.png" style="height: 20px; position:relative; top: 70px;" alt="" class="NotDraggable" id="minimize">
+                                    <!-- <img src="cruz.png" style="height: 20px; position:relative; top: 70px;" alt="" class="NotDraggable" id="devtools"> -->
+                                </div>
+                                
+                                <div style="padding-top: 50px; color: white">
+                                    <h2 style="font-weight: 900; ">LOGIN</h2>
+                                    <input style="width: 250px" type="text" name="api" id="api" placeholder="API KEY">
+                                    <input style="width: 250px" type="text" name="username" id="username" placeholder="USERNAME">
+                                </div>  
+                                <div>
+                                    <input style="margin-right: 15px;" type="button" class="waves-effect waves-light btn"  id="stats" value="Create Stats">
+                                    <label><input type="checkbox" /><span>Remember</span></label>
+                                </div>
+                            </form>  
+                </div>
+                <div id="right_col" class="draggable-area">
+                    <img src="background.png" alt="" style="height: 400px; position: relative; right: 300px; z-index: -1;" class="NotDraggable">
+                    <span style="position: absolute; color: rgb(165, 165, 165); right: 15px; top: 340px;">V 1.0 - Created by @MemoriasIT</span>
+                </div>
+            </div>
+        </div>
+        <script>
+            var app = require('electron').remote;
+            
+            //To send data
+            const { ipcRenderer } = require('electron');
+
+            ipcRenderer.on('ping', (event, message) => {
+                console.log(message) // Prints 'whoooooooh!'
+            })
+
+
+            // Click on send
+            document.getElementById("stats").addEventListener("click", () => {
+                ipcRenderer.send('asynchronous-message', 'test');
+            }, false);
+
+            // minimize app 
+            document.getElementById("minimize").addEventListener("click", () => {
+                app.BrowserWindow.getFocusedWindow().minimize();
+            }, false);
+
+            // Close app 
+            document.getElementById("close").addEventListener("click", () => {
+                app.BrowserWindow.getFocusedWindow().close();
+            }, false);
+
+            // Dev tools 
+            // document.getElementById("devtools").addEventListener("click", () => {
+            //     app.BrowserWindow.getFocusedWindow().openDevTools();
+            // }, false);  
+            
+        </script>
+        <script src="stats.js"></script>
+    </body>
+</html>
