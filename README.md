@@ -18,4 +18,6 @@ It shows your image, champion name, level, league, wins and losses and top 3 cha
 I wrote this after going partying -> Coding without sleep -> Code is messy and bad.
 Also login is not fully implemented, just saying inb4 you come at me angry cause you lost your sanity.
 
+edit: 24 august 2018 - apparently a vulnerability was found on thus version of electron so if you decide to use this shit updte it first
+
 Peace!
